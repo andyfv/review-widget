@@ -195,7 +195,7 @@ ul {
 
     h3 {
         width: 90%; 
-        @include multiLineEllipsis($lineHeight: 1em, $lineCount: 2, $bgColor: $review-bg);  
+        @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 2, $bgColor: $review-bg);  
     }
 }
 
