@@ -1,0 +1,230 @@
+$font-stack: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$font-color: rgb(105, 105, 105);
+$trustpilost-green: rgb(1, 182, 122);
+$review-bg: rgb(230, 230, 230);
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: $review-bg){
+    overflow: hidden;
+    position: relative;
+    line-height: $lineHeight;
+    max-height: $lineHeight * $lineCount; 
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+    &:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    &:after {
+        background: $bgColor;
+        position: absolute;
+        margin-top: 0.2em;
+        content: '';
+        height: 1em;
+        width: 1em;
+        right: 0;
+    }
+  }
+
+body {
+    background-color: rgb(240, 240, 240);
+    font-family: $font-stack;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.reviews-box {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 6px;
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+    top: 60px;
+
+    &:hover {
+        border: none;
+        -webkit-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.reviews-filter {
+    border-bottom: 2px solid $trustpilost-green;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    height: 40px;
+    right: 0;
+    left: 0;
+    top: 0;
+
+}
+
+.reviews-filter-text {
+    height: 100%;
+    margin-top: 0; 
+    font-size: 25px;
+    padding-top: 7px;
+    padding-left: 15px;
+    color: $font-color;
+}
+
+.reviews-filter-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 10px;
+    padding-top: 5px;
+    height: 100%;
+    margin: 0;
+}
+
+.filter {
+    margin-left: 5px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color:$trustpilost-green;
+        cursor: pointer;
+    }
+}
+
+.filter-all {
+    text-decoration: underline;
+    vertical-align: 15px;
+    margin: 0 5px 0 5px;
+    color: $font-color;
+    text-align: center;
+    line-height: 34px;
+    font-size: 22px;
+
+    &:hover {
+        font-weight: lighter;
+        cursor: pointer;
+        color: rgb(248, 141, 1);
+    }
+}
+
+.reviews-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    position: fixed;
+    height: 355px;
+    width: 400px;
+}
+
+.reviews-results-wrapper {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.review {
+    background-color: rgb(230, 230, 230);
+    border-radius: 4px;
+    margin: 10px auto;
+    overflow: hidden;
+    width: 360px;
+    // height: 200px;
+    display: block;
+    padding: 5px;
+
+    &:hover {
+        -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.review-stars-wrapper {
+    margin: 5px 0 0 5px;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 35px;
+}
+
+.review-stars {
+    border: 2px solid white;
+    border-radius: 4px;
+    position: relative;
+    width: 160px;
+    height: 30px;
+}
+
+.review-stars-bar {
+    margin: 2px 5px 0 5px;
+    position: absolute;
+    width: 150px;
+    z-index: 2;
+}
+
+.review-stars-green {
+    background-color: lawngreen;
+    border-radius: 3px;
+    position: absolute;
+    height: 30px;
+    z-index: 1;
+}
+
+.review-name {
+    height: 15px;
+    width: 45%;
+    font-size: 24px;
+    padding: 5px;
+    text-align: start;
+    color: $font-color;
+    text-overflow: ellipsis;
+
+    h6 {
+        margin: 0;
+    }
+}
+
+.review-title {
+    margin: 5px;
+
+    h3 {
+        width: 90%; 
+        @include multiLineEllipsis($lineHeight: 1em, $lineCount: 2, $bgColor: $review-bg);  
+    }
+}
+
+.review-location {
+    width: 90%;
+    color: $font-color;
+    margin: 5px;
+
+    p {
+        overflow: hidden;
+        margin: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+.review-body p{
+    margin: 5px;
+    width: 90%;
+    @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 2, $bgColor: $review-bg);
+}
+
+.star {
+    background-image: url('../resources/images/single-star-grey.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center; 
+
+    &:hover {
+        background-image: url('../resources/images/single-star-white.svg');
+    }
+}

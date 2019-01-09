@@ -1,0 +1,261 @@
+body {
+  background-color: #f0f0f0;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.reviews-box {
+  background-color: white;
+  border: 1px solid #cecece;
+  border-radius: 6px;
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+  top: 60px;
+}
+
+.reviews-box:hover {
+  border: none;
+  -webkit-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.reviews-filter {
+  border-bottom: 2px solid #01b67a;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.reviews-filter-text {
+  height: 100%;
+  margin-top: 0;
+  font-size: 25px;
+  padding-top: 7px;
+  padding-left: 15px;
+  color: dimgray;
+}
+
+.reviews-filter-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 10px;
+  padding-top: 5px;
+  height: 100%;
+  margin: 0;
+}
+
+.filter {
+  margin-left: 5px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.filter:hover {
+  background-color: #01b67a;
+  cursor: pointer;
+}
+
+.filter-all {
+  text-decoration: underline;
+  vertical-align: 15px;
+  margin: 0 5px 0 5px;
+  color: dimgray;
+  text-align: center;
+  line-height: 34px;
+  font-size: 22px;
+}
+
+.filter-all:hover {
+  font-weight: lighter;
+  cursor: pointer;
+  color: #f88d01;
+}
+
+.reviews-results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow: hidden;
+  position: fixed;
+  height: 355px;
+  width: 400px;
+}
+
+.reviews-results-wrapper {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.review {
+  background-color: #e6e6e6;
+  border-radius: 4px;
+  margin: 10px auto;
+  overflow: hidden;
+  width: 360px;
+  display: block;
+  padding: 5px;
+}
+
+.review:hover {
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.review-stars-wrapper {
+  margin: 5px 0 0 5px;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 35px;
+}
+
+.review-stars {
+  border: 2px solid white;
+  border-radius: 4px;
+  position: relative;
+  width: 160px;
+  height: 30px;
+}
+
+.review-stars-bar {
+  margin: 2px 5px 0 5px;
+  position: absolute;
+  width: 150px;
+  z-index: 2;
+}
+
+.review-stars-green {
+  background-color: lawngreen;
+  border-radius: 3px;
+  position: absolute;
+  height: 30px;
+  z-index: 1;
+}
+
+.review-name {
+  height: 15px;
+  width: 45%;
+  font-size: 24px;
+  padding: 5px;
+  text-align: start;
+  color: dimgray;
+  text-overflow: ellipsis;
+}
+
+.review-name h6 {
+  margin: 0;
+}
+
+.review-title {
+  margin: 5px;
+}
+
+.review-title h3 {
+  width: 90%;
+  overflow: hidden;
+  position: relative;
+  line-height: 1em;
+  max-height: 2em;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+.review-title h3:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.review-title h3:after {
+  background: #e6e6e6;
+  position: absolute;
+  margin-top: 0.2em;
+  content: '';
+  height: 1em;
+  width: 1em;
+  right: 0;
+}
+
+.review-location {
+  width: 90%;
+  color: dimgray;
+  margin: 5px;
+}
+
+.review-location p {
+  overflow: hidden;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.review-body p {
+  margin: 5px;
+  width: 90%;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 2.4em;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+.review-body p:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.review-body p:after {
+  background: #e6e6e6;
+  position: absolute;
+  margin-top: 0.2em;
+  content: '';
+  height: 1em;
+  width: 1em;
+  right: 0;
+}
+
+.star {
+  background-image: url("../resources/images/single-star-grey.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.star:hover {
+  background-image: url("../resources/images/single-star-white.svg");
+}
+/*# sourceMappingURL=style.css.map */
